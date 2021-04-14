@@ -107,7 +107,7 @@ if exist "%TAGS_FILE%" (
 )
 if ["%INDEX_WHOLE_PROJECT%"]==["1"] (
     if not ["%FILE_LIST_CMD%"]==[""] (
-        echo Running custom file lister >> %LOG_FILE%
+        echo Running file list command >> %LOG_FILE%
         set use_raw_list=0
         if ["%PROJECT_ROOT%"]==["."] set use_raw_list=1
         if ["%FILE_LIST_CMD_IS_ABSOLUTE%"]==["1"] set use_raw_list=1
@@ -180,12 +180,15 @@ echo.
 echo    -e [exe=ctags]: The ctags executable to run
 echo    -t [file=tags]: The path to the ctags file to update
 echo    -p [dir=]:      The path to the project root
+echo    -l [log=]:      The log file to output to
 echo    -L [cmd=]:      The file list command to run
 echo    -A:             Specifies that the file list command returns
 echo                    absolute paths
 echo    -s [file=]:     The path to the source file that needs updating
-echo    -l [log=]:      The log file to output to
+echo    -x [pattern=]:  A pattern of files to exclude
 echo    -o [options=]:  An options file to read additional options from
+echo    -O [params=]:   Parameters to pass to ctags
+echo    -P [cmd=]:      Post process command to run on the tags file
 echo    -c:             Ask for confirmation before exiting
 echo.
 
